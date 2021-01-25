@@ -1,0 +1,662 @@
+SC4 DAT Reader
+
+by Ilive
+--------
+
+Latest Updates
+--------------
+
+19th April 2003
+---------------
+v 0.1.1 : filters added
+          disable preview button added
+          fix decompression code
+
+v 0.1.3 : progress bar added (decoding)
+ 	  fix crash when no .dat or .sc4 loaded (thx to Mike230224)
+	  try to avoid to overwrite previous filexxxx (I said 'try' :) )
+
+
+20th April 2003
+---------------
+v 0.1.4 : new filters added
+	  fix again decompression code (it seems some other fix will be needed) 
+	  save decompressed file button added
+
+v 0.1.5 : UI modification (right-click on File Tree to view menu)
+	  ReIndex function added
+          Remove function added (use this function for test)
+  	  Insert functions added (use this function for test)	
+	  Copy ID/ Paste ID : copy/paste the 12 unknown bytes of an entry (use this function for test)	
+
+21th April 2003
+---------------
+v 0.1.6 : Copy Entry ID/ Paste Entry ID : copy/paste the 12 unknown bytes of an entry (use this function for test)	
+          Copy File ID/ Paste File ID : copy/paste the 7 unknown bytes of a compressed file (use this function for test)	
+          Remove the EACS filter
+  	  Display Entry & File ID informations
+	  Index Analyser (find different patterns in the index)
+
+v 0.1.7 : Fix bugs
+	  'Where clause' added in the Index analyser (use only hex values without 0x notation and without space)
+ 	  Synchronisation between Index Analyser results & main window (use right click/ Synchronize in the second List Ctrl)
+
+22th April 2003
+---------------
+v 0.1.8 : Edit of index available
+          Edit of header compressed file available (not needed as we know the format)
+          Column group added (it uses an alternate way to determine file group)
+          Insert & compress partially fixed (header part)
+
+23th April 2003
+---------------
+v 0.1.9 : index error check added when saving .dat
+          SHP preview file added
+
+
+24th April 2003
+---------------
+v 0.2   : decode function & SHP preview fixed
+          compression routines is now fully fuctionnal (D.Auroux compressor/decompressor used)
+	  you can now edit decoded files and apply the modifications. Don't forget to save your dat. 
+          
+25th April 2003
+---------------
+v 0.2.1 : Compressed examplar preview (Ex. Analyser button)
+
+26th April 2003
+---------------
+v 0.2.2 : Hex editor added (right click on File Tree)
+	  MAD files are no longer previewed
+
+v 0.2.3 : bug fixed in a check code (while saving)
+	  a search option has been added in the Ex Analyser (F3 or right-click on the first list)
+
+v 0.2.4 : new column in the Ex Analyser
+
+27th April 2003
+---------------
+v 0.2.5 : property editor added (right click on the property list in the Ex Analyser screen)
+          the list in the property editor is editable (it's sometimes hard to edit each entries, I don't know why)
+
+28th April 2003
+---------------
+v 0.2.6 : Directory info (display the content of the 'Directory' sub file, synchronization with main files)
+ 	  Exemplar analyser modeless
+	  Exemplar analyser new features :
+	    - ParentCohort Stat screen (menu of the exemplars list)
+	    - Sync. with ParentCohort File (menu of the exemplars list)
+	    - Sync. with file ? (menu of the properties list) ; this feature is only available for Uint32 property with 3 values
+            - Sint64 display bug fixed
+
+
+29th April 2003
+---------------
+v 0.2.7 : User Interface updates          
+	  Internal code update	
+
+30th April 2003
+---------------
+v 0.2.8 : Cohort analyser (based on exemplar analyser) 
+          3DM binary preview
+
+1st May 2003
+---------------
+v 0.2.9 : LEV/TKD editor (available in the preview screen by selecting a lev/tkd file)
+	  ******** ALPHA VERSION :) ********
+	  Exemplar recorder : record your modification, save them (File menu/saved recorded exemplars).
+	                      to apply the modifications, use the RPatch utility
+          ***********************************************************************************************
+
+
+2?? May 2003
+---------------          
+v 0.3.0 : Float value are now correctly displayed in the Exemplar Analyser
+	  Copy to clipboard option in the Exemplar Analyser added -- it's for you Buggi :)
+	  Header analyser has changed ; you can now search for an Id, a group or an instance -- this time it's for Karybdis :)
+          UI updates (new icon from Aran, perhaps you could create other ones for main interface :)
+	  SHP filed renamed in FSH
+
+3rd May 2003
+---------------   
+v 0.3.1 : Filters added in the Exemplar Analyser
+	  'Save exemplars & properties to file' option added (right click on the first list in the Ex analyser).  
+
+v 0.3.2 : XIM preview added
+	  LText preview added
+	  New icons (thanks to Aran)
+          SimCityLocal.dat can be used to replace exemplar names (when it is possible). To configure this feature, go to the option menu and select option item. Inside the Option Screen, fill the SimcityLocal.dat field. Your file will be loaded once you have exited this screen (your parameter are saved in a reader.ini file)
+
+4th May 2003
+---------------
+v 0.3.3 : Autoload feature (reload the last opened file at launch) Set this feature in the option screen
+	  sort bug in Index Analyser fixed
+	  MCO preview added (former F1A)
+          3DM mats : fsh preview (show FSH used by mats). Many FSH files are in different SC4 dat. You need to fill the SC4 directory field in the option screen to be able to see all fsh preview.
+	  
+v 0.3.4 : 3DM mats : fsh preview : some bugs fixed
+	  3DM verts: vertices coord. preview
+	  Index Analasyser : 'Extend search to all dat files' option added
+
+5th May 2003
+---------------
+v 0.3.5 : Exemplar UI changed
+
+6th May 2003
+---------------
+v 0.3.6 : more exemplar filters added
+	  Tree/List view in Exemplar analyser
+	  internal changes for RPatch 0.02
+
+RPATCH 0.02 : possibility to add a comment
+	      the extension for rpatch is set to "kbi"
+	
+	  RPATCHs generated by 0.3.6 version don't run on RPatch 0.01
+	  
+	  
+7th May 2003
+---------------
+v 0.3.7 : exemplar filters added
+	  possibility to save numerous encoded files
+          possibility to save file headers (as text or binary)
+
+9th May 2003
+---------------
+v 0.3.8 : first preview of 3DM model (options are available through a right click menu on the preview screen)
+	  use +/- to zoom
+	  direction key and shift direction key to rotate
+
+
+10th May 2003
+---------------
+v 0.3.9 : 'export as Autodesk 3DS' option added for 3DM file
+	  
+11th May 2003
+---------------
+v 0.4.0 : many bugs corrected
+v 0.4.1 : all entries are now recordable (right click menu on the first list of the main screen)
+
+	  
+12th May 2003
+---------------
+v 0.4.2 : patch manager (more functions will be added in the futur)	
+	  Properties added are now correctly inserted
+	  "Find a property" window : allow you to search a given property in exemplar files
+
+14th May 2003
+---------------
+v 0.4.3 : minor UI improvement (property edition, progress bar added ...)
+	  'replace material' function added (MATS tab)
+          'import 3DS' function added
+
+20th May 2003
+---------------
+v 0.4.4 : 'Find a property' window is now modeless ; a Synchronise option (right click menu) has been added
+          Some bugs fixed
+
+23th May 2003	  
+---------------
+v 0.4.5 : 'Properties Folder' screen added. It allows you to keep your exemplars properties in memory, to save them & to load them.
+	   You can add properties to this screen by using menu found in the property screen of the Exemplar Analyser (the right pane) ; the entry is named 'Copy selected property to folder'.
+	   To use these saved properties, just drag the selected properties from the 'Properties Folder' and drop them onto the property screen of the Exemplar Analyser or the edit of the preview screen for unencoded exemplars (such as landmark). In this case, don't forget to adjust the PropCount value.
+          
+
+27th May 2003
+--------------
+v0.4.6 Many bugs fixed (when inserting or removing file) 
+       New Feature :
+       General
+          Find in LText (menu Option) : it allows you to search a text in all LText of the opened Dat
+          a new preview for UI file (older view is available through the  menu : text view)
+       ExAnalyser
+          a sync with file option in the menu of the left pane (I will add later the number for the tree view)
+          the find box have more options (it allows you to search a specific text/hex value in the string/number properties of all           exemplars)
+ 
+       A new method to add file (batch method) is also available : you have to provide a text file containing information about        files you want to insert 
+       - each line represent a file ; each line is composed of 5 fields ; a tab is present between each field
+       1st field : type (DWORD) ; 2nd field : group (DWORD) ; 3rd field : instance (DWORD); 4th field filename (string) ; 5th field : compressed (Y/N)
+
+
+4th June 2003
+--------------
+v0.4.7 : Edit ParentCohort from Exemplar analyser added
+         EQZT Exemplar files appear in the ExAnalyser
+
+v0.4.7b : edit properties from PropFolder added
+
+5th June 2003
+--------------
+v0.4.8  : Reindex LotConfig menu entry added in the ExAnalyser
+	  Changes in PropertyFolder (FPR files appears in the right pane ; you have to define the FPR directory by using option screen)
+	  Changes in 3DM preview UI
+
+7th June 2003
+--------------
+v0.4.9 : Index Analyser : the meaning of search string depends now on the Mem & Disk radio button (it allows you to search for memory address)
+         File Info/Edit : you can now paste type/group/instance address (no need to enter each byte) 
+         Save/Insert    : each time you save a file , an another file is created with the TGI extension. This text file contains the Type/Group/Instance information of the file. When you insert a file, the Reader looks for a file with the same name but with TGI extension. If this file is found, Type/Group/Instance are extracted.
+         minor bug fixed in the Exemplar Analyser (the Sint8 has been replaced by Bool, Float by Float32, cr/lf bug fixed ...)
+         Property Folder : some shortcuts have been added  : CTRL-A to select all properties, CTRL-C to copy them (the focus has to be set on the right panel)
+	 Exemplar Analyser : a CTRL-V (Paste) shortcut has been added ; it adds previously selected properties to the selected exemplar
+
+	Thanks to RalphaelNinja for his help...
+
+8th June 2003
+--------------
+v0.5.0 :
+	Creating New .Dat file available
+	The text preview allows standard shortcuts : ctrl-c (copy), ctrl-v (paste), ctrl-x (cut), ctrl-u (undo)
+        in list view:
+	- double-clicking on an exemplar pop-up a new exemplar analyser window and sync itself at the proper exemplar for edit.
+ 	- double-clicking on a cohort pop-up a new cohort analyser window and sync iteslef at the proper cohort for edit.
+	- type, group and instances are displayed on list view, alowing sort on type, group and instance.
+	in index analyser:
+	- double-clicking on an exemplar pop-up a new exemplar analyser window.
+	- double-clicking on a cohort pop-up a new cohort analyser window.
+	in Cohort/Exemplar list/tree view:
+	the positioning of the highlighted item is maintained when you change from tree to list view (and vice versa)
+
+20th June 2003
+--------------	
+v0.5.2 :
+	DAT Patch available : create dat file instead of kbi file
+
+22th June 2003
+--------------	
+v0.5.3 :The engine is now separated from the main application ; the or_dat.dll is needed to run the Reader
+	
+	Exemplar & Cohort preview in the main screen
+	Bug fixed : Cohort saves
+
+v0.5.4 : Clone File : duplicate a file , type/group/instance are the same (the function is located in the context menu of the main screen)
+ 	 Automatic search of lotconfiglotpropertyobject file by using the Index Analyser (the function is located in the context menu of the property screen) : at the moment, it's available only for these form of properties
+	 Display associated children (for cohort file) : it displays all children associated with a cohort file (the function is located in the context menu of the cohort screen, and is only available in the TREE view)
+	 
+02th July 2003
+------------
+v0.5.6 : bugs with lot editor files fixed         
+	 bool values in text exemplar (EQZT) are correctly displayed		 
+         FSH preview is disabled to avoid some crashes
+
+09th July 2003
+-----------
+v0.5.7 : fix some bugs
+	 Add a 'Merge to opened dat' option
+
+16th July 2003
+-----------
+v0.5.8 : Better support of FSH files
+	 FSH Animation support added and available under FSH preview form (The 'simcity directory' field must be filled)
+	 'Export as animated Gif' feature added in the animation preveiw screen
+ 
+24th July 2003
+-----------
+v0.5.9 :  Bitmap preview improved
+	  Navigator function : it allows you to navigate through lot exemplars and their parents ...
+	 
+  	  WARNING ! as many functions of the engine have changed, bugs may appears. 
+
+v0.5.9b : Exemplar bug fixed (thanks to Ralph)
+
+ 
+27th July 2003
+-----------
+v0.6.0 : CANCELED
+
+28th July 2003
+-----------
+v0.6.1 : 'Sync. with ParentCohort file' crash fixed ("Parent Cohort Stat" screen)
+	 CTRL-Del keys added (to remove files or properties)
+	 'Find a Property' :
+               Sort added
+ 	       the 'Synchronise' bug fixed
+ 	       'Synchronise'  improved (sync with exemplar & property)
+         KBI->Dat converter (available in the patch screen)
+         'Navigator'
+             the four views of a building are available
+	     Repetitive exemplars bug fixed
+             'Synchronise' function added
+
+31th July 2003
+-----------
+v0.6.2 : 'Find properties/exemplars by value' feature added ; this screen is available into the Exemplar analyser (the Prop icon with a V). This feature allows you to find properties and their exemplar by one of the value included in the property
+         Edit/Add Property screens display the default data type of the selected property
+
+v0.6.3 : XA format supported
+         Sound.dat and SimCitylocale.dat are now included in the pre-load part
+
+2 Aug 2003
+-----------
+v0.6.4 : some bugs fixed
+	 some functions added to play sounds (XA & Wav preview)
+
+6th Aug 2003
+---------
+v0.6.5 :  Multi Document User Interface added
+v0.6.6 :  Filter bug fixed
+          Find in LUA functions added (main screen/ Find menu)
+          Multiple Properties editing function added : this function is available in the Find a Property screen (in the Exemplar/Cohort screen). Select the found properties, right click and choose Edit.
+
+v0.6.6b : empty list bug fixed
+v0.6.6c : KBI->Dat bug fixed
+               Loteditor alternate filename field added in the option screen (don't care if you haven't changed the filename 'loteditor.dat')
+v0.6.6d : Create Dat (patch screen) bug fixed
+
+7th Aug 2003
+---------
+v0.6.7 : new filters added
+         file association bugs fixed
+
+v0.6.7b: FSH preview crash fixed
+	 directory filter added
+ 	 HLS preview in sound.dat fixed
+         
+	 FROM THIS VERSION IF YOU HAVE A CRASH PLEASE REPORT THE MESSAGE TO THE SIMTROPOLIS BOARD/ 	 MOD SQUAD/RESEARCH & DEV
+
+11th Aug 2003
+----------
+v0.6.8 : Cursor preview (previously known as U1 format)
+         LUA/INI syntax highlighting added
+         Filter while switching between files is saved/restored
+         some files transfered from UI to RUL (files number 675,24065,36689 from simcity1.dat) and no longer crash when previewed
+
+v0.6.8b : ATC preview crash fixed
+               new filter added (INI)
+
+12th Aug 2003
+-----------
+v0.6.9 : BlackBox bug trapping dll added
+        I hope it will help me to find bugs. The following dll must be present in your system : dbghelp.dll & psapi.dll
+v0.6.9b: U3 preview shows hex values (instead of text)
+
+14th Aug 2003
+-----------
+v0.7.0 : preview crash fix under Win98  (but previews may be unavailable)
+         Batch Insert function removed ; you can now select multiple files in the standard insert dialog box
+         Default Folder (set the value in the option screen) for Save/Insert functions
+         File 18433 (simcity1_dat) group changed (UI->INI)
+         Properties Counter dialog (tools menu) : it displays all properties of the current dat
+         File extension added when save function used
+         
+16th Aug 2003
+----------
+v0.7.1 : all previews available under win98 (thanks to funforfree99 for his help)
+         Batch Insert function comes back :) 
+         Savegame type added
+         Insert function bug fixed
+
+23th Aug 2003
+----------
+v0.7.2 : Navigator synchronise bug fixed
+         New feature : Building Tweaker 
+         It allows you to easily modify common properties of building (such as name, pollution...) and to save them as a DAT file. It's much like a simplified exemplar analyser (or a simplified SCEdit tools). You don't need to load any file, but you must fill the 'Simcitylocale.dat file' and 'simcity folder' fields in order to use it. To access this screen, you can use the Tweaker icon or the Tools menu/Building tweaker. Inside this screen, just use the combo to select the appropriate building type (Residential/Commercial...). The first time you select a type, the list will be initialize (it may be a bit long). Your modification are not lost when you close the building tweaker screen but you need to save them before exiting the Reader.
+         
+v0.7.3 : Industry Resource bug fixed in Building Tweaker 
+         Vehicules added in the Navigator
+	 New Feature : Texture Viewer (menu Tools/Texture viewer). This feature is a beta. It allows you to see roads/street/railway/highway and car/train textures. You don't need to load any file, but you must fill the 'Simcitylocale.dat file' and 'simcity folder' fields in order to use it. You can save the texture using the context menu (select texture then right click)
+
+24th Aug 2003
+----------
+v0.7.3b : Anim section updated in 3DM file
+          some bugs fixed in the Texture Viewer
+
+25th Aug 20003
+----------
+v0.7.4  : crash while switching from XA preview to another preview fixed
+          XA autoplay disabled
+          CTRL+left clic on Ex Analyser, Cohort , Index icon open a new Ex Analyser/Cohort/Index window
+          Merge DAT improved : multiple files can be merged in one operation
+          Multiple DIR file after merge operation fixed
+          File Views are not removed when you switch between files
+          
+27th Aug 2003
+---------
+v0.7.5 : Check file existence in the Save file function added (to avoid file overwriting)
+             Warning added if you try to 'Add to patch' a file already added
+             Delete function added in the Property Find dialog box (available through the context menu)
+v0.7.5b : fixed two minor bugs in the texture viewer
+v0.75c&d : fixed bugs in the texture viewer
+
+12th Sep 2003
+------------
+v0.7.6 : XML properties definition supported ; you need to fill the 'XML properties file' field in the Option box
+            Plugins DAT & SC4lot can be displayed in the Left Bar ; you need to check the 'Preload plugins.dat' checkbox
+            a Virtual DAT can be displayed in the Left Bar ; you need to check the 'Show virtual DAT' checkbox. The virtual DAT includes the 5 simcity dat files, the Sound.dat file, the localefile & the loteditor file. 
+           Plugins Analyser Added. This tool (available in the tools Menu/Plugins Analyser) allows you to see cross-TGI references between plugins dat files. If you select only one file, the check is done between this file & all the other files. If you select more than one file, the check is done between the last selected file and other files.
+           Date/Time of DAT file supported
+           Export All files feature added (requested by Buggi)
+
+16th Sep 2003
+------------
+v0.7.7 : New S3D preview screen
+         Pane sizes are now saved
+
+23th Sep 2003
+------------
+v0.7.8 : Memory leak while previewing S3D fixed
+         some bugs & crashes (due to Rush Hour) fixed
+
+v0.7.8b : EP1.DAT support added ; all buildings are available under the Building Tweaker & Navigator
+          TRK invalid size field fixed
+          UDriveIt entry added in the Exemplar Analyser (Tree view)
+
+v0.7.8c : Building Tweaker bug fixed
+
+28th Sep 2003
+------------
+v0.7.9 : AVP preview screen updated
+         ATC preview screen updated
+         TRK preview screen updated
+         DBPF preview screen updated (you can open an another Reader from this screen)
+         Unknown properties counter bug fixed
+         SC4 file (savegame) seems to be correctly saved *be cautious* (thanks to Buggi for Header specification)
+         "Find Properties/exemplars by values" screen updated ; you can now edit/delete multiple values at the same time. By using this screen or the "Find properties" screen, you have the  same functionalities than a "Search & replace"
+         Compare Dat scren updated. A screen showing hex differences between the two files has been   added
+
+v0.7.9b : Invalid capacity for Civic building in Building Tweaker fixed
+
+30th Sep 2003
+-------------
+v0.8.0 : Properties are now handled by an external XML file (properties.xml). You can add new properties inside.
+         Building Tweaker properties can be added through an external XML file (blg_prop.xml)
+         Fix a bug in Building Tweaker (thanks to Deano03 for his help)
+
+3rd Oct 2003
+------------
+v0.8.1 :Building Tweaker : 
+           all versions from this one can be launched as a stand alone 'Builing Tweaker' program. 
+           You have to add in the Reader.ini:
+             [TWEAKER]
+             TWEAKER = 1
+           or to add the word tweaker in the name of the program (for exemple : tweaker_081.exe)
+           or add the word -tweak in the command line
+
+	Property editor : 
+           an edit has been added. It contains the values of the property (each of them is separate by comma)
+           You can edit values through this edit (quicker thant using the grid & add button). Don't forget to click the apply button located at the right of this edit.
+          
+        Main List & exemplar/cohort preview screen:
+           Copy/paste functions have been added for files (in the main list) and for properties (in the exemplar/cohort preview screen)
+           These functions use the clipboard , so you copy/paste files/properties in the current Reader but also in another Reader.
+           Their shortcuts are Ctrl-c / Ctrl-v
+
+        Main List :
+           'Insert file from a template' : your templates or your favorites files can be inserted in the current opened DAT through this option.
+            You need to copy these files in the 'template' folder and to edit the template.xml file.
+            You have to add a new line in this xml file :
+               <file name = "a_descriptive_name_for_your_file"   filename = "the_location_and_the_name_of_your_file"/>
+
+            for exemple :
+               <?xml version="1.0" encoding="utf-8" ?>
+                 <template>	
+     		    <file name = "exemplar" filename = "template\exemplar.eqz"/>            	
+ 		    <file name = "cohort"   filename = "template\cohort.cqz"/>            	
+                 </template>
+
+            Don't forget to also copy the TGI file associated with your favorites files (if you have them)
+                                         
+        Main List :
+           a 'Goto' dialog box has been added. It allows you to quickly select an entry by its position or its instance.
+           Its shortcuts is Ctrl-G
+
+v0.8.1b : bad ini & ui dectection in preloaded dat fixed
+v0.8.1c : the building tweaker mode can be activated by adding -tweak in the command line
+          'Paste properties' bug fixed
+          Dbpf preview & 'Reload the Last File' bug fixed
+          'Failed to import at least one file' when importing template file fixed
+        
+          New feature : as I really like this DatGen's feature, I added the ability to select which column headers you wish to display for the main list.  You can also change the oreder of the displayed columns
+
+12th Oct 2003
+-------------
+v0.8.2 : An interface has been added to setup the XML file used by the Building Tweaker feature (Properties button in the BT screen)
+	The building tweaker can now modify your plugins dat
+        Freeze when saving large files fixed
+        The synchronise function is improved. If you can't synchronise a subfile with the main list (due to filters for exemple), this subfile is added in the main list.
+        Switching between files has been improved.
+	Index Analyser can now search using ranges
+        Some bug in Lot preview fixed.
+         
+v0.8.2b : fix a bug in the Index analyser
+          unknown field type bug fixed
+          add a control in the Exemplar edit to prevent invalid Rep value
+          fix a bug in the animation code
+
+v0.8.2c : 'Insert & compress' function used on an already compressed files bug fixed (this bug crashed the reader)
+          F2 shortcut (to edit a selected line) added in "Find a property" & "Find a property/value" screen
+          "add a patch" added in "Find a property" & "Find a property/value" screen
+
+25th Oct 2003
+-------------
+v0.8.3 : Bug fixed
+         - no update in S3D preview fixed
+         - lock when scrolling in grid fixed
+         - DBPF preview fixed
+         - no directory file in Building Tweaker fixed
+  
+        Features added or improved
+         - context menu in S3D wireframe preview
+         - 'Find exemplars by parent cohort' screen added in Exemplar/Cohort Analyser
+         - LotConfig entry in Navigator added (it displays preview of the lot and elements of the lot)
+         - 'Group Add to patch' added in the main screen, Exemplar/Cohort analyser and Navigator screen
+         - type filters in Exemplar Analyser
+         - Hex view added in the context menu of the main screen (such as Text view)
+         - Lot preview allows to modify lot coordinates
+
+29th Oct 2003
+------------
+v0.8.4 : Bug fixed 
+         - ? crash in property description screen
+         
+         Features added or improved
+         - Find in UI/RUL added (main menu/find)
+         - UI preview can be disabled (using the option screen)
+         - Preview added in the context menu of the main screen (such as Hex view)
+         - UI renderer added (BETA)
+         - One Way Road added in the Texture Viewer
+         - Group Add to Patch : Query GUID added
+
+v0.8.4a : fix a bug with 3ds export
+
+10th Nov 2003
+-----------
+v0.8.5 : Bug fixed 
+         - UI crash if some bitmap files are not found
+	 - crash with some corrupted sc4lot
+
+	Features added or improved
+	 - UI preview : properties can now be modified through the 'UI properties' popup window (double click on a property)
+	                some filters have been added ( the strange icons :) )
+			a save button (the first icon) to update the dat file with your modification
+	 - Group Add to patch : a small interface has been added to preview what will be added to the patch
+	                       (you have the possibility to preview each files and remove them if needed)
+	 - a message has been added when you exit the program. You can disable it by using the option screen
+         - Window Position : most windows saves their sizes and position
+         - S3D Preview : mats & anim can be removed or changed
+
+		 
+17th Nov 2003
+-----------
+v0.8.6 : Bug fixed
+         - ltext encode function
+         - press Enter no more close the Find a property screen
+         - 'Group Add to patch' in Exemplar Analyser tree mode fixed
+         - LText bug fixed
+
+         Features added or improved
+         - texture viewer added for 0x21 type exemplars (available in the Exemplar Analyser / 'Lot' button)
+         - description & icon for a lot can be changed through the Building Tweaker
+         - two 'Open file' entry added in the main menu : open file using document plugins folder & open file using simcity plugins folder
+         - 'Group add to patch' : lot resource key added
+
+17th Dec 2003
+----------
+v0.8.7 : Some bugs fixed
+         Navigator improved : uses of Maxis type, Copy file added (menu), all exemplars should be displayed ...
+
+8th March 2004
+----------
+v0.8.8 : New Find dialog	
+         Fix a bug with text exemplars which prevented modifications
+         Use of Maxis' properties.xml and other properties.xml at the same time (a Tropod's version of the properties.xml is included, thanks to him)
+         
+26th March 2004
+---------
+v0.8.9 : New S3D algorythm and new S3D preview window
+         exemplar -> XML generator (Menu tools/Generate XML from exemplar files) : it can be used to create missing XML file in SC4Desc dat file
+         
+8th April 2004
+---------
+v0.8.9e : fix a bug in the UV wrapper
+	  Add a zoom in the UV wrapper
+          Fix a bug in the Find function with LText
+          Add a 'search in previous result' option in the Find function
+
+10th April 2004
+---------
+v0.8.9f: Improve S3D decompression with large S3D file
+         Add S3D animation : S3D anim section is now used to animate the S3D (through 3 new buttons in the s3d preview : play, stop, pause)
+
+3rd May 2004
+-------
+v0.9.0 :Features added or improved 
+	-Navigator/Exemplar Analyser categories
+        -TGI Editor (menu Tools/ TGI editor). This dialog allows you to change TGI for one or more files. You can use # as a mask.
+         (i.e. : 04##5### as Type will replace the first two characters and the fifth character of any selected files by 04 and 5)
+        -In S3D/UVMap, you can move more than one UV point at the same time
+        -LD file preview added
+         
+
+v0.9.0a Features added or improved  
+  	-Memory usage reduced
+        -'entries appearing more than once(in property editor)' bug fixed 
+        -crash fixed in tweaker
+
+11th May 2004
+-------
+v0.9.1 Features added
+        Group/Instance generator ; it is available through the tools menu / TGI generator - or - select entries in the main list, right click to open 
+        the menu and choose 'generate new instance'
+
+13th May 2004
+-------
+v0.9.2 Features added
+        Open/Save dialog have now a historical combo box
+        Scroll bar added for UV map dialog
+        keys (up, down, right, left) can be used to move selection in uv map dialog
+        Clone dialog replaces the clone function. You can put the number of copy and automatically change the TGI of cloned entries 
+
+v0.9.2b : Fix some bugs when adding index, vertices ... in s3d
+v0.9.2c : --
+v0.9.2d : add a 'Copy to clipboard' button in the LD preview
+v0.9.2e : fix a bug with bad LD
+v0.9.2f : fix a bug with s3d and key handle
+          fix a bug with zero length LF file
+          remove the 255 limit for "adding (n) Triangles &/or (n) Points" in s3d preview
+          change in the Find in Text to increase speed
+
+24th June 2004
+-------
+v0.9.3 Features added or improved
+        Merge S3D function : in the S3D preview, you can add a new S3D to the current S3D by pressing the 'Add S3D' button
+        Plugins Analyser : subdirectories are scanned

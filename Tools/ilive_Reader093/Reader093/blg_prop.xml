@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<bdlg_tweaker>
+	<properties>	    
+		<property desc="0x49CAC341" name="Plop Cost" color = "255,215,29"/>		
+		<property desc="0x099AFACD" name="Bulldoze Cost" color = "255,215,29"/>		
+		<property desc="0xEA54D286" name="Maintenance Cost"  color = "255,215,29"/>		
+		<property desc="0x6AD54804" name="Maintenance Cost"  color = "255,215,29"/>		
+		<property desc="0x27812852" name="Power Generated"  color = "250,125,82"/>		
+		<property desc="0x27812854" name="Power Consumed" color = "250,125,82"/>		
+		<property desc="0x88ED3303" name="Water Produced" color = "250,125,82"/>		
+		<property desc="0xC8ED2D84" name="Water Consumed" color = "250,125,82"/>		
+		<property desc="0x69220415" name="Capacity" color = "250,125,82"/>		
+		<property desc="0x8922041B" name="Capacity" color = "250,125,82"/>		
+		<property desc="0xA92AE446" name="EQ Boost" color = "250,125,82"/>		
+		<property desc="0xC9299659" name="HQ Boost" color = "250,125,82"/>		
+        <property desc="0xE90E25A3" name="Capacity of a transit building" color = "250,125,82"/>
+        
+        <property desc="0xEA1CF220" name="Building Lifetime (months)" op = "1/x" color = "10,202,73"/>                
+        <property desc="0x691B42B3" name="Radius of effect (tiles)" op = "/" op_value = "16" color = "10,202,73"/>
+        <property desc="0x48D71ED2" name="Radius of effect (tiles)" op = "/" op_value = "16" color = "10,202,73"/>
+		<property desc="0x27812834" name="Number of residence or job $/$$/$$$" field = "1" color = "10,202,73"/>		
+		<property desc="0x27812834" name="Number of residence or job $/$$/$$$" field = "3" color = "10,202,73"/>		
+		<property desc="0x27812834" name="Number of residence or job $/$$/$$$" field = "5" color = "10,202,73"/>		
+
+		<property desc="0x27812851" name="Pollution amount (Air)" field = "0" color = "31,102,182"/>		
+		<property desc="0x27812851" name="Pollution amount (Water)" field = "1" color = "31,102,182"/>		
+		<property desc="0x27812851" name="Pollution amount (Garbage)" field = "2" color = "31,102,182"/>		
+		<property desc="0x27812851" name="Pollution amount (Radiation)" field = "3" color = "31,102,182"/>		
+
+		<property desc="0x68EE9764" name="Pollution radii (Air)" field = "0" color = "31,102,255"/>		
+		<property desc="0x68EE9764" name="Pollution radii (Water)" field = "1" color = "31,102,255"/>		
+		<property desc="0x68EE9764" name="Pollution radii (Garbage)" field = "2" color = "31,102,255"/>		
+		<property desc="0x68EE9764" name="Pollution radii (Radiation)" field = "3" color = "31,102,255"/>		
+	</properties>
+</bdlg_tweaker>
